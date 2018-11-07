@@ -1,0 +1,29 @@
+server:
+  port: 18800
+  tomcat:
+    uri-encoding: UTF-8
+---
+spring:
+  profiles:
+    active: @profile.active@
+  application:
+    name: @artifactId@
+  aop:
+    proxy-target-class: true
+  jackson:
+    default-property-inclusion: NON_NULL
+management:
+  endpoints:
+    enabled-by-default: true
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    metrics:
+      enabled: true
+    prometheus:
+      enabled: true
+  metrics:
+    export:
+      prometheus:
+        enabled: true
